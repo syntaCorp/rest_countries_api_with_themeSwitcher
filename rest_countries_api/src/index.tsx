@@ -5,18 +5,15 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import { store } from './app/store';
 import App from './app/App';
-import './styles/index.css'
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
     <Router>
       <Provider store={store}>
         <App />
       </Provider>
     </Router>
-  </React.StrictMode>
 );
 
