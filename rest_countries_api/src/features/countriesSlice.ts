@@ -45,7 +45,6 @@ const countriesSlice = createSlice({
     }
 });
 
-// export const { loadCountries } = countriesSlice.actions;
 
 export const selectAllCountries = (state:any) => state.countries.countries;
 export const selectErrorMessage = (state:any) => state.countries.error;
