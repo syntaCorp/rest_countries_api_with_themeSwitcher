@@ -19,7 +19,7 @@ export function CountriesCollection(): React.ReactElement {
     }, [loadStatus, dispatch]);
 
 
-    //alphabetic sort 
+    //alphabetically sort countries 
     const sortedCountries = [...countries];
     sortedCountries.sort((item: CountryType, _item: CountryType) => item.name.common.localeCompare(_item.name.common));
 
@@ -31,7 +31,7 @@ export function CountriesCollection(): React.ReactElement {
                 : loadStatus === 'success' ?
                     sortedCountries.map((country: any, index: number) => {
                         return (<CountryCard
-                            key={country.name + index}
+                            key={country.name.common}
                             name={country.name}
                             population={country.population}
                             region={country.region}

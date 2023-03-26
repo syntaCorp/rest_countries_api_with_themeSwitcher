@@ -10,18 +10,12 @@ const initialState: countriesStateType = {
     error: '',
 };
 
-// handle request using asyncThunk
-const http = axios.create({
-    baseURL: 'https://restcountries.com/v3.1',
-});
-
 //load all countries thunk 
-export const fetchCountries = createAsyncThunk('countries/fetchCountries',
+export const fetchCountries = createAsyncThunk(
+    'countries/fetchCountries',
     async () => {
-        //    return api.getCountries();
-           const response = await http.get('/all')
-           const data = await response.data
-           return data;
+        const response = await api.getCountries()
+           return response;
     });
 
 const countriesSlice = createSlice({

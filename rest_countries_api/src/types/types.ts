@@ -22,3 +22,10 @@ export interface CountryType {
     flags: flagType,
     alt: string
 }
+
+
+export interface PosterType {
+    country: Array<any>,
+    status: 'idle' | 'failed' | 'loading' | 'success',
+    error: string,
+}

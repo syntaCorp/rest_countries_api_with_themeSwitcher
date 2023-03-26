@@ -15,7 +15,7 @@ export const api = {
     },
     //get country by fullname
     getCountry: async (name: string) => {
-        const response = await http.get(`/name/${name}?fullText=true`);
+        const response = await http.get(`/name/${name}`);
         return response.data
     },
 
