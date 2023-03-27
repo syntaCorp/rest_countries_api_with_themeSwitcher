@@ -7,16 +7,17 @@ const http = axios.create({
 });
 
 export const api = {
-    //get all countries data
+    //get all countries
     getCountries: async () => {
         const response = await http.get('/all')
         const data = await response.data
         return data;
     },
-    //get country by fullname
+    //get country by name
     getCountry: async (name: string) => {
         const response = await http.get(`/name/${name}`);
-        return response.data
+        const data = await response.data
+        return data;
     },
 
     //get country data by code

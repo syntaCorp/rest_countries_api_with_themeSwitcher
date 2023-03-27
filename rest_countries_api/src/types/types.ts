@@ -4,11 +4,11 @@ export interface countriesStateType {
     status: 'idle' | 'failed' | 'loading' | 'success',
     error: string,
 }
-interface countryNameType {
+export interface countryNameType {
     common: string
 }
 
-interface flagType {
+export interface flagType {
     png: string
     svg: string,
     alt: string

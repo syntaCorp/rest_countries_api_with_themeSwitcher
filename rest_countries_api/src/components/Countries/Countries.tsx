@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllCountries, selectErrorMessage, selectStatus } from "../../../features/countriesSlice";
-import { fetchCountries } from "../../../features/countriesSlice";
-import CountryCard from "./CountryCard";
-import { CountryType } from "../../../types/types";
+import { CountryType } from "../../types/types";
+import { selectAllCountries, selectErrorMessage, selectStatus } from "../../features/countriesSlice";
+import { fetchCountries } from "../../features/countriesSlice";
 
-export function CountriesCollection(): React.ReactElement {
+import CountriesItem from "./CountriesItem";
+
+
+export default function Countries(): React.ReactElement {
     const dispatch = useDispatch<any>();
 
     const countries = useSelector(selectAllCountries);
@@ -30,7 +32,7 @@ export function CountriesCollection(): React.ReactElement {
                 <h1 className="loading">Loading...</h1>
                 : loadStatus === 'success' ?
                     sortedCountries.map((country: any, index: number) => {
-                        return (<CountryCard
+                        return (<CountriesItem
                             key={country.name.common}
                             name={country.name}
                             population={country.population}
@@ -40,7 +42,7 @@ export function CountriesCollection(): React.ReactElement {
                             alt={country.alt}
                         />)
                     })
-                    : <h1 className="loading">{errorMessage}</h1>
+                : <h1 className="loading">{errorMessage}</h1>
             }
         </ React.Fragment>
     );

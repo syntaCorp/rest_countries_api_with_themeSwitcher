@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from "../components/Views/Home/Header/Header";
-import Home from '../components/Views/Home/Home';
-import CountryPoster from '../components/Views/Country/CountryPoster';
+import Header from "../components/Home/Header/Header";
+import Home from '../components/Home/Home';
+import CountryPoster from '../components/Country/CountryPoster';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/:name' element={<CountryPoster />} />
+        <Route path='/country/:name' element={<CountryPoster />} />
       </Routes>
     </div>
   );

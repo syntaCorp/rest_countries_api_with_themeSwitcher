@@ -1,12 +1,12 @@
 import React from "react";
-import { CountryType } from "../../../types/types";
+import { CountryType } from "../../types/types";
 import { Link } from "react-router-dom";
 
-export default function CountryCard({name: { common }, population, region, flags: { png, svg, alt }, capital }: CountryType): React.ReactElement {
+export default function CountriesItem({name: { common }, population, region, flags: { png, svg, alt }, capital }: CountryType): React.ReactElement {
 
     return (
         <React.Fragment>
-        <Link to={`/${common}`}>
+        <Link to={`/country/${common}`}>
           <div className="country__card" key={common}>
                 <div className="flag">
                     <img src={svg} alt={alt} />

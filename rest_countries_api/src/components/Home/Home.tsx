@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "./Search/SearchBar";
-import { CountriesCollection } from "../Countries/CountriesCollection";
+import Countries from "../Countries/Countries";
 
 
 export default function Home(): React.ReactElement {
@@ -9,7 +9,7 @@ export default function Home(): React.ReactElement {
         <React.Fragment>
             <SearchBar />
             <div className="countries__catalogue">
-                <CountriesCollection />
+                <Countries />
             </div>
         </ React.Fragment>
     );
