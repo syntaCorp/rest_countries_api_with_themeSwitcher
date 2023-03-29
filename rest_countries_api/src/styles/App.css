@@ -185,7 +185,7 @@ span.title {
 
 .loading {
   font-size: 1.5em;
-  color: red;
+  color: rgb(136, 136, 136);
 }
 
 .search__textbox>svg {
@@ -201,15 +201,15 @@ span.title {
 }
 
 .back__button {
-  font-size: 14px;
+  font-size: .875rem;
   font-weight: 300;
   border: none;
   padding: .65em 1.75em;
   box-shadow: 0px 0px 10px 0.5px #7070704a;
   background: #fff;
   margin-top: 3em;
-  margin-bottom: 3em;
-  margin-left: 4em;
+  margin-bottom: 4em;
+  margin-left: 1em;
   cursor: pointer;
   border-radius: .4em;
 }
@@ -219,21 +219,26 @@ span.title {
 }
 
 .poster-img {
-  border-radius: 10px;
+  border-radius: .625em;
   overflow: hidden;
 }
 
 .border__countries {
-  display: flex;
-  gap: .25em
+  /* display: flex; */
+  /* gap: .25em */
 }
-.border__countries li{
-list-style: none;
-border-radius: 5px;
-background-color: #e5e4e4;
-box-shadow: 0px 0px 10px 0.5px #7070704a;
-background: #fff;
-padding: .25em;
+.border__countries-list ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75em;
+}
+.border__countries li {
+	list-style: none;
+	border-radius: 5px;
+	background-color: #e5e4e4;
+	box-shadow: 0px 0px 10px 0.5px #7070704a;
+	background: #fff;
+	padding: .5em 2em;
 }
 
 /* Adjust styles for various screen sizes */
@@ -304,7 +309,7 @@ padding: .25em;
   .poster-img>img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
   }
 
   .poster-img {
@@ -325,20 +330,6 @@ padding: .25em;
     /* place-content: center; */
   }
 
-  .back__button {
-    font-size: .874em;
-    font-weight: 300;
-    border: none;
-    padding: .65em 1.75em;
-    box-shadow: 0px 0px 10px 0.5px #7070704a;
-    background: #fff;
-    margin-top: 3em;
-    margin-bottom: 4em;
-    margin-left: 1em;
-    cursor: pointer;
-    border-radius: .4em;
-    display: block;
-  }
 
   .poster__details > h1 {
     margin-block-end: 1em;
@@ -348,9 +339,9 @@ padding: .25em;
     line-height: 2em;
   }
 
-  .border__countries > h2 {
+  .border__countries h2 {
     font-size: 1em;
-    display: block;
+    margin-bottom: .5em;
   }
 
   .poster__details div:nth-child(n+1){
@@ -363,6 +354,8 @@ padding: .25em;
   .poster__details > div > p > span{
     font-weight: 700;
   }
+
+
 }
 
 

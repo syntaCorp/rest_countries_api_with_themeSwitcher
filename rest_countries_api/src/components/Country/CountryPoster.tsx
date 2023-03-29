@@ -27,7 +27,7 @@ function CountryPoster(): React.ReactElement {
     return (
         <React.Fragment>
             {
-                status === 'loading' ? <h1>Loading...</h1>
+                status === 'loading' ? <h1 className="loading">Loading...</h1>
                     : status === 'success' ?
                         <><Link to="/"><button className="back__button">&larr; Back</button></Link>
                             {poster.map((item: any) => {
