@@ -24,18 +24,23 @@ export function CountryPosterItem(
 
                 <div className="poster__details">
                     <h1>{commonName}</h1>
-                    <div>
-                        <p><span>Native Name: </span>{officialName}</p>
-                        <p><span>Population: </span>{population.toLocaleString()}</p>
-                        <p><span>Region: </span>{region}</p>
-                        <p><span>Sub Region: </span>{subregion}</p>
-                        <p><span>Capital: </span>{capital}</p>
+
+                    <div className="country__poster-data">
+                        <div>
+                            <p><span>Native Name: </span>{officialName}</p>
+                            <p><span>Population: </span>{population.toLocaleString()}</p>
+                            <p><span>Region: </span>{region}</p>
+                            <p><span>Sub Region: </span>{subregion}</p>
+                            <p><span>Capital: </span>{capital}</p>
+                        </div>
+
+                        <div>
+                            <p><span>Top level Domain: </span>{tld[0]}</p>
+                            <p><span>Currencies: </span>{currencyName ? currencyName : "N/A"}</p>
+                            <p><span>Languages: </span>{countryLanguages.length ? countryLanguages.join(', ') : "N/A"}</p>
+                        </div>
                     </div>
-                    <div>
-                        <p><span>Top level Domain: </span>{tld[0]}</p>
-                        <p><span>Currencies: </span>{currencyName ? currencyName : "N/A"}</p>
-                        <p><span>Languages: </span>{countryLanguages.length ? countryLanguages.join(', ') : "N/A"}</p>
-                    </div>
+
                     <div className="border__countries">
                         <h2>Border Countries:</h2>
                         <div className="border__countries-list">
@@ -43,6 +48,7 @@ export function CountryPosterItem(
                         </div>
                     </div>
                 </div>
+
             </section>
         </ React.Fragment>
     );
