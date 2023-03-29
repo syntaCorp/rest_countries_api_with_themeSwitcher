@@ -12,20 +12,17 @@ function CountryPoster(): React.ReactElement {
     const poster = useSelector(selectCountryPoster);
     const status = useSelector(selectStatus);
     const error = useSelector(selectErrorMessage);
+    // console.log(poster);
 
-    const { name } = useParams();
+
+    const { name } = useParams<string>();
+    // console.log("country name:", name);
 
     useEffect(() => {
-        if (status === 'idle') {
-            dispatch(loadCountryPoster(name!))
-        }
+        // if (status === 'idle') {}
+        dispatch(loadCountryPoster(name!))
 
-    }, [dispatch, name, status]);
-
-
-    // const {currency} = currencies;
-    // console.log(currency);
-
+    }, [dispatch, name]);
 
     return (
         <React.Fragment>
@@ -34,23 +31,21 @@ function CountryPoster(): React.ReactElement {
                     : status === 'success' ?
                         <><Link to="/"><button className="back__button">&larr; Back</button></Link>
                             {poster.map((item: any) => {
-                                console.log("item currencies:", item.currencies)
-
                                 return (
                                     <CountryPosterItem
-                                        key={`${item.name.common}_${item.name.population}`}
+                                        key={`${item.name.official}_${item.population}`}
                                         commonName={item.name.common}
-                                        nativeName={item.name.nativeName}
+                                        officialName={item.name.official }
                                         population={item.population}
                                         languages={item.languages}
                                         region={item.region}
                                         subregion={item.subregion}
                                         currencies={item.currencies}
                                         borders={item.borders}
-                                        capital={item.capital[0]}
+                                        capital={item.capital ? item.capital[0] : "N/A"}
                                         tld={item.tld}
                                         flags={item.flags}
-                                        alt={item.flags.alt ? item.flags.alt : item.name.common}
+                                        alt={item.flags.alt ? item.flags.alt : `Flag of ${item.name.common}`}
                                     />
                                 )
                             })}

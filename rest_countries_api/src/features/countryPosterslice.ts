@@ -5,7 +5,7 @@ import { PosterType } from "../types/types";
 
 const initialState: PosterType = {
     country: [],
-    status: 'idle',
+    status: '',
     error: '',
 }
 export const loadCountryPoster = createAsyncThunk(
@@ -27,7 +27,7 @@ export const countryPosterSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(loadCountryPoster.fulfilled, (state, action: any) => {
-                state.country.push(...action.payload);
+                state.country = [...action.payload];
                 state.status = 'success';
                 state.error = '';
             })

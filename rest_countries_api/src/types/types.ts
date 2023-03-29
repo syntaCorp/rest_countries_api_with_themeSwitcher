@@ -23,9 +23,8 @@ export interface CountryType {
     alt: string
 }
 
-
 export interface PosterType {
     country: Array<any>,
-    status: 'idle' | 'failed' | 'loading' | 'success',
+    status: string, //'failed' | 'loading' | 'success',
     error: string,
 }
