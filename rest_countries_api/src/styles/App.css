@@ -142,7 +142,6 @@ a {
 .flag>img {
   width: 100%;
   height: 100%;
-  border-radius: .5em .5em 0 0;
 }
 
 .country__card {
@@ -150,10 +149,18 @@ a {
   height: 21em;
   display: inline-block;
   background-color: #fff;
-  /* padding: 1.187em; */
   box-shadow: 0px 0px 10px 0.5px #7070704a;
   border-radius: .4em;
   cursor: pointer;
+  overflow: hidden;
+  transition:  all 0.1s ease-out;
+}
+
+
+.country__card:hover {
+  box-shadow: 0px 8px 24px 0px #241b1b50;
+  transform: translateY(-.4em);
+  transition: 0.1s cubic-bezier(.59,.54,.62,.56);
 }
 
 h2.country-name {
@@ -208,7 +215,7 @@ span.title {
   background: #fff;
   margin-top: 3em;
   margin-bottom: 4em;
-  margin-left: 1em;
+  margin-left: 5vw;
   cursor: pointer;
   border-radius: .4em;
 }
@@ -276,15 +283,11 @@ div.country__poster-data>div>p>span {
 }
 
 .country__poster {
-  width: calc(100% - 1.7em);
+  width: calc(100vw - 10%);
   margin: 0 auto;
   display: grid;
-  /* grid-template-columns: repeat(auto-fill, 46em); */
-  column-gap: 8em;
-  /* grid-template-columns: 1fr 35em; */
+  column-gap: 3em;
   grid-template-rows: 1fr auto;
-  /* place-items: center; */
-  /* place-content: center; */
 }
 
 
@@ -292,8 +295,6 @@ div.country__poster-data>div>p>span {
 /* Adjust styles for various screen sizes */
 @media screen and (width >=12.5em) and (width <=47.9375em) {
 
-  /* 375px */
-  /* 320 - 480 */
   .drop__filter {
     right: calc(100vw - 14.5em);
     top: 10.25em;
@@ -356,13 +357,12 @@ div.country__poster-data>div>p>span {
 }
 
 
-
 /* ---------------------------------------------------------- */
 @media screen and (width >=37.625em) and (width <=47.9375em) {
   .countries__catalogue {
     column-gap: 1.5em;
     row-gap: 4em;
-  }
+}
 
   .country__poster-data {
     display: flex;
@@ -401,6 +401,7 @@ div.country__poster-data>div>p>span {
   /* .poster__details > h1 {
     font-size: 2rem;
   } */
+
   .country__poster-data {
     display: flex;
     justify-content: space-between;
@@ -412,5 +413,20 @@ div.country__poster-data>div>p>span {
     /* width: 100%;
     height: 100%; */
   }
+}
 
+@media screen and (width >= 64em) {
+  .country__poster {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+  }
+
+  .poster-img {
+    max-width: 35em;
+
+    height: 100%;
+  }
 }
