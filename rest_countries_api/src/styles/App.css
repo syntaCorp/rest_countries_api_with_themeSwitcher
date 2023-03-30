@@ -139,6 +139,9 @@ a {
 }
 
 /* filter by region options */
+.flag {
+	height: 10em;
+}
 .flag>img {
   width: 100%;
   height: 100%;
@@ -164,11 +167,10 @@ a {
   transform: translateY(-.4em);
   transition: 0.1s cubic-bezier(.59, .54, .62, .56);
 }
-
 h2.country-name {
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 1em;
+	font-size: 1.25rem;
+	font-weight: 800;
+	margin-block: 1em;
 }
 
 span.title {
@@ -239,7 +241,7 @@ span.title {
 .poster-img>img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 .border__countries {

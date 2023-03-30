@@ -7,7 +7,7 @@ import { fetchCountries } from "../../features/countriesSlice";
 import CountriesItem from "./CountriesItem";
 
 
-export default function Countries(): React.ReactElement {
+export default function Countries({ searchTerm }: { searchTerm: string }): React.ReactElement {
     const dispatch = useDispatch<any>();
 
     const countries = useSelector(selectAllCountries);
@@ -31,18 +31,20 @@ export default function Countries(): React.ReactElement {
             {loadStatus === 'loading' ?
                 <h1 className="loading">Loading...</h1>
                 : loadStatus === 'success' ?
-                    sortedCountries.map((country: any, index: number) => {
+                    sortedCountries
+                    .filter((country: any) => country.name.common.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+                    .map((country: any, index: number) => {
                         return (<CountriesItem
-                            key={country.name.common}
+                            key={country.name.common + index}
                             name={country.name}
                             population={country.population}
                             region={country.region}
                             capital={country.capital}
                             flags={country.flags}
-                            alt={country.alt}
+                            alt={country.flags.alt}
                         />)
                     })
-                : <h1 className="loading">{errorMessage}</h1>
+                    : <h1 className="loading">{errorMessage}</h1>
             }
         </ React.Fragment>
     );
