@@ -3,9 +3,9 @@ import { flagType } from '../../types/types';
 import { Link } from "react-router-dom";
 
 export function CountryPosterItem(
-    { commonName, officialName, population, capital, region, languages, subregion, borders, currencies, tld, flags: { svg }, alt }: {
+    { commonName, officialName, population, capital, region, languages, subregion, borders, currencies, tld, flags: { svg }, alt,}: {
         commonName: string, officialName: string, population: number, capital: string, region: string, subregion: string, borders: string[],
-        languages: Object, currencies: Object, tld: string[], flags: flagType, alt: string
+        languages: Object, currencies: Object, tld: string[], flags: flagType, alt: string,
     }
 ): React.ReactElement {
 
@@ -19,7 +19,7 @@ export function CountryPosterItem(
         <React.Fragment>
             <section className="country__poster">
                 <div className="poster-img">
-                    <img src={svg} alt="" />
+                    <img src={svg} alt={alt} />
                 </div>
 
                 <div className="poster__details">
@@ -44,7 +44,7 @@ export function CountryPosterItem(
                     <div className="border__countries">
                         <h2>Border Countries:</h2>
                         <div className="border__countries-list">
-                            <ul> {borders ? borders.map((border: string, index: number) => <Link to={"/"}><li key={border + index} className="border__country-list">{border}</li></Link>) : "N/A"}</ul>
+                            <ul> {borders ? borders.map((border, index) => <Link to={"/"}><li key={`${border}-${index}`} className="border__country-list">{border}</li></Link>) : "N/A"}</ul>
                         </div>
                     </div>
                 </div>

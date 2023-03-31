@@ -112,6 +112,8 @@ a {
   font-size: 1rem;
   right: 0em;
   top: 4.25em;
+  transition: all 100s ease;
+  z-index: 1;
 }
 
 .drop__filter li {
@@ -366,6 +368,9 @@ div.country__poster-data>div>p>span {
   .poster-img {
     margin-block-end: 2.75em;
   }
+  .poster__details>h1 {
+    margin-block-start: 1em;
+  }
 }
 
 
@@ -383,6 +388,10 @@ div.country__poster-data>div>p>span {
 
   .country__poster-data:nth-child(2) {
     margin-right: 5em;
+  }
+
+  .poster__details>h1 {
+    margin-block-start: 1em;
   }
 }
 
@@ -419,7 +428,11 @@ div.country__poster-data>div>p>span {
   .country__poster-data:nth-child(2) {
     margin-right: 5em;
   }
+  .poster__details>h1 {
+    margin-block-start: 1em;
+  }
 }
+
 
 @media screen and (width >=64em) {
   .country__poster {

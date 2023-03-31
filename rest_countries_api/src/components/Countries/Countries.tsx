@@ -7,7 +7,12 @@ import { fetchCountries } from "../../features/countriesSlice";
 import CountriesItem from "./CountriesItem";
 
 
-export default function Countries({ searchTerm }: { searchTerm: string }): React.ReactElement {
+type PropType = {
+    searchTerm: string;
+    region: string;
+}
+
+export default function Countries({ searchTerm, region }: PropType): React.ReactElement {
     const dispatch = useDispatch<any>();
 
     const countries = useSelector(selectAllCountries);
@@ -24,26 +29,42 @@ export default function Countries({ searchTerm }: { searchTerm: string }): React
     //alphabetically sort countries 
     const sortedCountries = [...countries];
     sortedCountries.sort((item: CountryType, _item: CountryType) => item.name.common.localeCompare(_item.name.common));
+    // sortedCountries.map(c =>  console.log(c.));
 
+    const renderData = (countries: CountryType[]) => {
+        return countries.filter((country: CountryType) => {
+            //match countries with starting characters}
+            
+
+            if (country.region === region) {
+                console.log('filter trigerred', country.region)
+                return country.region.toLocaleLowerCase() === region.toLowerCase();
+            }
+            else if (country.name.common) {
+                return country.name.common.toLocaleLowerCase()
+                    .startsWith(searchTerm.toLocaleLowerCase())
+            }
+
+        })
+    }
 
     return (
         <React.Fragment>
             {loadStatus === 'loading' ?
                 <h1 className="loading">Loading...</h1>
                 : loadStatus === 'success' ?
-                    sortedCountries
-                    .filter((country: any) => country.name.common.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
-                    .map((country: any, index: number) => {
-                        return (<CountriesItem
-                            key={country.name.common + index}
-                            name={country.name}
-                            population={country.population}
-                            region={country.region}
-                            capital={country.capital}
-                            flags={country.flags}
-                            alt={country.flags.alt}
-                        />)
-                    })
+                    renderData(sortedCountries)
+                        .map((country: any, index: number) => {
+                            return (<CountriesItem
+                                key={country.name.common + index}
+                                name={country.name}
+                                population={country.population}
+                                region={country.region}
+                                capital={country.capital}
+                                flags={country.flags}
+                                alt={country.flags.alt}
+                            />)
+                        })
                     : <h1 className="loading">{errorMessage}</h1>
             }
         </ React.Fragment>
