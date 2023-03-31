@@ -1,6 +1,5 @@
 import React, { ChangeEvent, ChangeEventHandler, EventHandler } from "react";
 import Filter from "./Filter";
-import { FunctionLikeDeclaration } from "typescript";
 
 
 type handleSearchTerm = (term: string) => void;
