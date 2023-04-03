@@ -1,9 +1,9 @@
 import {createContext, useContext} from 'react';
 
-export type themeType = 'dark' | 'light';
+// export type themeType = 'dark' | 'light';
 
 export type ThemeContextType = {
-    currentTheme: themeType,
+    currentTheme: string,
     switchTheme: (arg: string) => void
   };
 

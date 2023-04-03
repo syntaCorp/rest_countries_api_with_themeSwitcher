@@ -23,32 +23,34 @@ function CountryPoster(): React.ReactElement {
 
     return (
         <React.Fragment>
-            {
-                status === 'loading' ? <h1 className="loading">Loading...</h1>
-                    : status === 'success' ?
-                        <><Link to="/"><button className="back__button">&larr; Back</button></Link>
-                            {[poster].map((item: any) => {
-                                return (
-                                    <CountryPosterItem
-                                        key={`${item.name.official}_${item.population}`}
-                                        commonName={item.name.common}
-                                        officialName={item.name.official }
-                                        population={item.population}
-                                        languages={item.languages}
-                                        region={item.region}
-                                        subregion={item.subregion}
-                                        currencies={item.currencies}
-                                        borders={item.borders}
-                                        capital={item.capital ? item.capital[0] : "N/A"}
-                                        tld={item.tld}
-                                        flags={item.flags}
-                                        alt={item.flags.alt ? item.flags.alt : `Flag of ${item.name.common}`}
-                                    />
-                                )
-                            })}
-                        </>
-                        : <> <Link to="/"><button>&larr; Back</button></Link><h1 className="loading">{error}</h1></>
-            }
+            <div className="poster__container">
+                {
+                    status === 'loading' ? <h1 className="loading">Loading...</h1>
+                        : status === 'success' ?
+                            <><Link to="/"><button className="back__button">&larr; Back</button></Link>
+                                {[poster].map((item: any) => {
+                                    return (
+                                        <CountryPosterItem
+                                            key={`${item.name.official}_${item.population}`}
+                                            commonName={item.name.common}
+                                            officialName={item.name.official}
+                                            population={item.population}
+                                            languages={item.languages}
+                                            region={item.region}
+                                            subregion={item.subregion}
+                                            currencies={item.currencies}
+                                            borders={item.borders}
+                                            capital={item.capital ? item.capital[0] : "N/A"}
+                                            tld={item.tld}
+                                            flags={item.flags}
+                                            alt={item.flags.alt ? item.flags.alt : `Flag of ${item.name.common}`}
+                                        />
+                                    )
+                                })}
+                            </>
+                            : <> <Link to="/"><button>&larr; Back</button></Link><h1 className="loading">{error}</h1></>
+                }
+            </div>
         </ React.Fragment>
     );
 }
