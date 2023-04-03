@@ -64,7 +64,7 @@ div#dark .header, #dark{
   color: #F2F2F2;
 }
 
-#dark > header h1, .toggle__mode__btn {
+#dark > header h1, #dark .toggle__mode__btn {
   color: #F2F2F2;
 }
 #dark .search__textbox,
@@ -162,7 +162,6 @@ div#dark .header, #dark{
   font-size: 1rem;
   right: 0em;
   top: 4.25em;
-  transition: all 100s ease;
   z-index: 1;
 }
 
@@ -349,7 +348,7 @@ div.country__poster-data>div>p>span {
 @media screen and (width >=12.5em) and (width <=47.9375em) {
 
   .drop__filter {
-    right: calc(100vw - 14.5em);
+    right: calc(100vw - 13.5em);
     top: 10.25em;
   }
 

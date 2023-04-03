@@ -9,22 +9,24 @@ import { ThemeContext } from './ThemeContext';
 function App() {
   // Detect the default browser theme
 const isbrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
+console.log('browser def:', isbrowserDefaultDark())
 
 //render specific mode when default theme is set
 const getDefaultTheme = (): string => {
   const localStorageTheme = localStorage.getItem('theme')!;
 
   const browserDefault = isbrowserDefaultDark() ? 'dark' : 'light';
-  return ( localStorageTheme && browserDefault);
+  return ( localStorageTheme ||browserDefault);
 };
 
   const switchTheme = (lightMode: string) => { 
     setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light'); // toggle theme 
 
-    localStorage.setItem('theme', currentTheme === 'light' ? 'dark' : 'light'); //persist user's set theme
+    localStorage.setItem('theme', currentTheme === 'dark' ? 'light' : 'dark'); //persist user's set theme
   };
   
   const [currentTheme, setCurrentTheme] = useState<string>(getDefaultTheme());
+  console.log('c theme:', currentTheme);
 
 
 
