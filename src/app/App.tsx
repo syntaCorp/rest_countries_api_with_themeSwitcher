@@ -6,7 +6,6 @@ import CountryPoster from '../components/Country/CountryPoster';
 import { ThemeContext } from './ThemeContext';
 
 
-
 function App() {
   // Detect the default browser theme
 const isbrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;

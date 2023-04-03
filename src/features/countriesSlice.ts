@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import {countriesStateType} from '../types/types';
 import { api } from "../app/Api";
 
