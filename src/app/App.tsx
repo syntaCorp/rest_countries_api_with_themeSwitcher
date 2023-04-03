@@ -9,14 +9,13 @@ import { ThemeContext } from './ThemeContext';
 function App() {
   // Detect the default browser theme
 const isbrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
-console.log('browser def:', isbrowserDefaultDark())
 
 //render specific mode when default theme is set
 const getDefaultTheme = (): string => {
   const localStorageTheme = localStorage.getItem('theme')!;
 
   const browserDefault = isbrowserDefaultDark() ? 'dark' : 'light';
-  return ( localStorageTheme ||browserDefault);
+  return ( localStorageTheme || browserDefault);
 };
 
   const switchTheme = (lightMode: string) => { 
@@ -26,8 +25,6 @@ const getDefaultTheme = (): string => {
   };
   
   const [currentTheme, setCurrentTheme] = useState<string>(getDefaultTheme());
-  console.log('c theme:', currentTheme);
-
 
 
   return (
@@ -37,6 +34,7 @@ const getDefaultTheme = (): string => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/country/:name' element={<CountryPoster />} />
+          <Route path='/country/code/:code' element={<CountryPoster />} />
         </Routes>
       </div>
     </ThemeContext.Provider>

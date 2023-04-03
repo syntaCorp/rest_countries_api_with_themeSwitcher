@@ -44,7 +44,7 @@ export function CountryPosterItem(
                     <div className="border__countries">
                         <h2>Border Countries:</h2>
                         <div className="border__countries-list">
-                            <ul> {borders ? borders.map((border, index) => <Link to={`/code:${border}`}><li key={`${border}-${index}`} className="border__country-list">{border}</li></Link>) : "N/A"}</ul>
+                            <ul> {borders ? borders.map((border, index) => <Link to={`/country/code/${border}`}><li key={`${border}-${index}`} className="border__country-list">{border}</li></Link>) : "N/A"}</ul>
                         </div>
                     </div>
                 </div>

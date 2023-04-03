@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../app/Api";
 import { PosterType } from "../types/types";
 
-
 const initialState: PosterType = {
     country: [],
     status: '',
@@ -11,11 +10,18 @@ const initialState: PosterType = {
 export const loadCountryPoster = createAsyncThunk(
     'countryPoster/loadCountryPoster',
     async (name: string) => {
-        const response = await api.getCountry(name.trim());
+        const response = await api.getCountry(name);
         return response;
     }
 );
 
+export const loadCountryByCode = createAsyncThunk(
+    'countryPoster/loadCountryByCode',
+    async (code: string) => {
+        const response = await api.getByCountryCode(code);
+        return response;
+    }
+);
 
 export const countryPosterSlice = createSlice({
     name: 'countryPoster',
@@ -34,6 +40,20 @@ export const countryPosterSlice = createSlice({
             .addCase(loadCountryPoster.rejected, (state, action: any) => {
                 state.error = action.error.message;
                 state.status = 'failed';
+                state.country = [];
+            })
+            .addCase(loadCountryByCode.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(loadCountryByCode.fulfilled, (state, action) => {
+                state.country = action.payload[0];
+                state.status = 'success';
+                state.error = '';
+            })
+            .addCase(loadCountryByCode.rejected, (state, action: any) => {
+                state.error = action.error.message;
+                state.status = 'failed';
+                state.country = [];
             })
     }
 });

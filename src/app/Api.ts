@@ -22,7 +22,7 @@ export const api = {
 
     //get country data by code
     getByCountryCode: async (code: string) => {
-        const response = await http.get(`alpha?codes={code},{code},{code}`);
+        const response = await http.get(`/alpha/${code}`);
         return response.data;    
     }
 

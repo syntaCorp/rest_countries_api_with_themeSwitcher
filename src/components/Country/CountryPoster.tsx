@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { loadCountryPoster } from "../../features/countryPosterslice";
+import { loadCountryByCode, loadCountryPoster } from "../../features/countryPosterslice";
 import { selectCountryPoster, selectErrorMessage, selectStatus } from "../../features/countryPosterslice";
 import { CountryPosterItem } from "./CountryPosterItem";
 
@@ -13,13 +13,18 @@ function CountryPoster(): React.ReactElement {
     const status = useSelector(selectStatus);
     const error = useSelector(selectErrorMessage);
 
-    const { name } = useParams<string>();
+    const { name, code } = useParams<string>();
+
 
     useEffect(() => {
         // if (status === 'idle') {}
-        dispatch(loadCountryPoster(name!));
+        if(name){
+            dispatch(loadCountryPoster(name!));
+        }else if(code){
+            dispatch(loadCountryByCode(code))!;
+        }
 
-    }, [dispatch, name]);
+    }, [dispatch, name, code]);
 
     return (
         <React.Fragment>
@@ -48,7 +53,7 @@ function CountryPoster(): React.ReactElement {
                                     )
                                 })}
                             </>
-                            : <> <Link to="/"><button>&larr; Back</button></Link><h1 className="loading">{error}</h1></>
+                            : <> <Link to="/"><button className="back__button">&larr; Back</button></Link><h1 className="loading">{error}</h1></>
                 }
             </div>
         </ React.Fragment>

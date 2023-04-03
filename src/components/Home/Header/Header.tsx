@@ -5,9 +5,7 @@ import '../../../styles/App.css';
 import {ThemeContext} from "../../../app/ThemeContext"
 
 function Header(): React.ReactElement {
-     const { currentTheme, switchTheme} = useContext(ThemeContext);
-     console.log('Current theme:', currentTheme);
-     
+     const { currentTheme, switchTheme} = useContext(ThemeContext);  
 
     
     return (
