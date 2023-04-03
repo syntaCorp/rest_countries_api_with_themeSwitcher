@@ -12,15 +12,12 @@ function CountryPoster(): React.ReactElement {
     const poster = useSelector(selectCountryPoster);
     const status = useSelector(selectStatus);
     const error = useSelector(selectErrorMessage);
-    // console.log(poster);
-
 
     const { name } = useParams<string>();
-    // console.log("country name:", name);
 
     useEffect(() => {
         // if (status === 'idle') {}
-        dispatch(loadCountryPoster(name!))
+        dispatch(loadCountryPoster(name!));
 
     }, [dispatch, name]);
 
@@ -30,7 +27,7 @@ function CountryPoster(): React.ReactElement {
                 status === 'loading' ? <h1 className="loading">Loading...</h1>
                     : status === 'success' ?
                         <><Link to="/"><button className="back__button">&larr; Back</button></Link>
-                            {poster.map((item: any) => {
+                            {[poster].map((item: any) => {
                                 return (
                                     <CountryPosterItem
                                         key={`${item.name.official}_${item.population}`}

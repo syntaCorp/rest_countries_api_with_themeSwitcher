@@ -29,21 +29,19 @@ export default function Countries({ searchTerm, region }: PropType): React.React
     //alphabetically sort countries 
     const sortedCountries = [...countries];
     sortedCountries.sort((item: CountryType, _item: CountryType) => item.name.common.localeCompare(_item.name.common));
-    // sortedCountries.map(c =>  console.log(c.));
 
-    const renderData = (countries: CountryType[]) => {
+    function renderData(countries: CountryType[]) {
         return countries.filter((country: CountryType) => {
-            //match countries with starting characters}
-            
+            return country.name.common.toLowerCase()
 
-            if (country.region === region) {
-                console.log('filter trigerred', country.region)
-                return country.region.toLocaleLowerCase() === region.toLowerCase();
-            }
-            else if (country.name.common) {
-                return country.name.common.toLocaleLowerCase()
-                    .startsWith(searchTerm.toLocaleLowerCase())
-            }
+            // if (country.region === region) {
+            //     console.log('filter trigerred', country.region)
+            //     return country.region.toLocaleLowerCase() === region.toLowerCase();
+            // }
+            // else if (country.name.common) {
+            //     return country.name.common.toLocaleLowerCase()
+            //         .startsWith(searchTerm.toLocaleLowerCase())
+            // }
 
         })
     }

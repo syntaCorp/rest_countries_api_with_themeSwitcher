@@ -11,7 +11,7 @@ const initialState: PosterType = {
 export const loadCountryPoster = createAsyncThunk(
     'countryPoster/loadCountryPoster',
     async (name: string) => {
-        const response = await api.getCountry(name);
+        const response = await api.getCountry(name.trim());
         return response;
     }
 );
@@ -27,7 +27,7 @@ export const countryPosterSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(loadCountryPoster.fulfilled, (state, action: any) => {
-                state.country = [...action.payload];
+                state.country = action.payload[0];
                 state.status = 'success';
                 state.error = '';
             })

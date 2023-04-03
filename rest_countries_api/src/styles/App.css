@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&display=swap');
 
-/* CSS reset */
+/* CSS RESET */
 html,
 body,
 * {
@@ -9,7 +9,7 @@ body,
   box-sizing: border-box;
 }
 
-/* Base styles --> applies to any media size */
+/* BASE STYLES --> applies to any media size */
 body {
   font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,10 +29,6 @@ a {
   text-decoration: none;
 }
 
-/* .header div {
-  margin-inline: 5em;
-} */
-
 /* end header style */
 
 /* filter categories toogle btn */
@@ -49,7 +45,43 @@ a {
   gap: 0.5em;
 }
 
+.dark__mode-icon--hidden, .light__mode-icon--hidden {
+  display: none;
+}
+
+.light__mode-icon, .dark__mode-icon {
+  transition: all .5s ease-in-out;
+}
+
+div#dark .header, #dark{
+  background-color: #202C36;
+  color: #F2F2F2;
+}
+
+#dark > header h1, button {
+  color: #F2F2F2;
+}
+#dark .search__textbox, #dark .text__field, #dark .filter__bar, #dark .drop__filter, #dark .filter__options, #dark .country__card{
+  color: #F2F2F2;
+  background-color: #202C36;
+
+}
+
+#light, header h1 {
+  color: #111517; 
+}
+
+#light > header button {
+  color: #111517; 
+  background-color: F2F2F2; 
+}
+
+#dark, #light {
+  /* transition: all .2s ease-in-out 0s; */
+}
+
 /* end filter categories toogle btn */
+
 
 /* search bar /pane */
 .search__pane {
@@ -100,6 +132,11 @@ a {
 
 .filter__options li:hover {
   background-color: #F2F2F2;
+}
+#dark .filter__options li:hover{
+  background-color: #7e7d7d7c;
+  color: #F2F2F2;
+
 }
 
 .drop__filter {
@@ -208,13 +245,6 @@ span.title {
   margin-right: 1.25em;
 }
 
-.light__mode-icon {
-  display: none;
-}
-
-.dark__mode-icon {
-  /* display: none; */
-}
 
 .back__button {
   font-size: .875rem;
@@ -328,6 +358,7 @@ div.country__poster-data>div>p>span {
     display: flex;
     justify-content: center;
     gap: 0.5em;
+
   }
 
   button.toggle__mode__btn {

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler, EventHandler, useState } from "react";
+import React, { EventHandler, useState } from "react";
 import SearchBar from "./Search/SearchBar";
 import Countries from "../Countries/Countries";
 
