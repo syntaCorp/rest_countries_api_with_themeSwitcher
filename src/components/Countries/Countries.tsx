@@ -32,12 +32,12 @@ export default function Countries({ searchTerm, region }: PropType): React.React
 
     function renderData(countries: CountryType[]) {
         return countries.filter((country: CountryType) => {
-            // return country.name.common.toLowerCase()
+            return country.name.common.toLowerCase()
 
-                if (country.name.common) {
-                return country.name.common.toLocaleLowerCase()
-                    .startsWith(searchTerm.toLocaleLowerCase())
-            }
+            //     if (country.name.common) {
+            //     return country.name.common.toLocaleLowerCase()
+            //         .startsWith(searchTerm.toLocaleLowerCase())
+            // }
 
             // if (country.region === region) {
             //     console.log('filter trigerred', country.region)
