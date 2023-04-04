@@ -4,11 +4,12 @@ This is a solution to <a href="https://amalitech.org/">AmaliTech</a> Frontend En
 
 
 ## Outline of contents
-- Project Objective
-- Requirements
-- Built with
-- Project links
-- Author
+- [Project Objective](#project-objective-📃)
+- [Requirements](#project-objective-📃)
+- [Requirement design preview](#requirement-design-preview-📷)
+- [Built with](#built-with-🛠)
+- [Project links](#project-links-🔗)
+- [Author](#author-👨‍💻)
 
 ## Project Objective 📃
  Your challenge is to integrate with the <a href="https://restcountries.com/">REST Countries V3 API</a> to pull country data and display it like in the designs (see attachments). You are required to use the React + TypeScript front-end framework. However, you have complete control over which packages you use to do things like make HTTP requests or style your project.
@@ -23,7 +24,7 @@ This is a solution to <a href="https://amalitech.org/">AmaliTech</a> Frontend En
 6. Click through to the border countries on the detail page 
 7. Toggle the colour scheme between light and dark mode
 
-###### Requirement design preview
+###### Requirement design preview 📷
 ![Screenshot of Desktop design](./design/desktop-preview.jpg)
 
 ## Built With 🛠
