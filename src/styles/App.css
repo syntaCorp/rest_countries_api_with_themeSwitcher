@@ -209,7 +209,6 @@ div#dark .header, #dark{
   border-radius: .4em;
   cursor: pointer;
   overflow: hidden;
-  /* transition: all 0.1s ease-out; */
 }
 
 
@@ -285,7 +284,6 @@ span.title {
 .poster-img>img {
   width: 100%;
   height: 100%;
-  /* object-fit: cover; */
 }
 
 .border__countries {

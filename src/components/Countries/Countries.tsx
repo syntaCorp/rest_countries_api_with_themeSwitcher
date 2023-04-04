@@ -37,6 +37,7 @@ export default function Countries({ searchTerm, region }: PropType): React.React
                     .includes(searchTerm.toLowerCase())
             }
             else if (region !== '') {
+                if(region === 'Filter by region') return country.name.common.toLowerCase();
                 return country.region.toLowerCase() === region.toLowerCase();
             }
 
@@ -64,7 +65,6 @@ export default function Countries({ searchTerm, region }: PropType): React.React
                     : <div className="status_box">
                         <h1 className="loading">{errorMessage}</h1>
                     </div>
-
             }
         </ React.Fragment>
     );
