@@ -25,6 +25,7 @@ This is a solution to <a href="https://amalitech.org/">AmaliTech</a> Frontend En
 
 ###### Requirement design preview
 ![Screenshot of Desktop design](./design/desktop-preview.jpg)
+![Screenshot of Desktop design](./design/mobile-design-home-light.jpg)
 
 ## Built With 🛠
 - Typescript
