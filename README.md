@@ -35,7 +35,7 @@ This is a solution to <a href="https://amalitech.org/">AmaliTech</a> Frontend En
 
 - Project repository 📁 <a href="https://github.com/syntaCorp/rest_countries_api_with_themeSwitcher">Here</a>
 
-## Author 
+## Author 👨‍💻
 #### Kwaku TD.
 - Github <a href="https://github.com/syntaCorp">Profile</a>
 - Twitter <a href="https://twitter.com/Kwaku_keen?t=OqKuZbGDJxq_Din04c0e2g&s=09">Profile</a>
