@@ -34,7 +34,7 @@ This is a solution to <a href="https://amalitech.org/">AmaliTech</a> Frontend En
 - Vanilla CSS
 
 ## Project links 🔗 
-- Visit live app. 🌎 <a href="https://syntacorp-countries-api.netlify.app/">Deployed here<a/>
+- Visit live app. 🌎 <a href="https://syntacorp-rest-countries-api.netlify.app/">Deployed here<a/>
 
 - Project repository 📁 <a href="https://github.com/syntaCorp/rest_countries_api_with_themeSwitcher">Here</a>
 
