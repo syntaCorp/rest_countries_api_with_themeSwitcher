@@ -27,10 +27,10 @@ function CountryPoster(): React.ReactElement {
     }, [dispatch, name, code]);
 
     return (
-        <React.Fragment>
+        <React.Fragment> 
             <div className="poster__container">
                 {
-                    status === 'loading' ? <h1 className="loading">Loading...</h1>
+                    status === 'loading' ? <div className="status_box"><h1 className="loading">Loading...</h1></div>
                         : status === 'success' ?
                             <><Link to="/"><button className="back__button">&larr; Back</button></Link>
                                 {[poster].map((item: any) => {
@@ -53,7 +53,11 @@ function CountryPoster(): React.ReactElement {
                                     )
                                 })}
                             </>
-                            : <> <Link to="/"><button className="back__button">&larr; Back</button></Link><h1 className="loading">{error}</h1></>
+                            : <> <Link to="/">
+                                    <button className="back__button">&larr; Back</button>
+                                </Link>
+                                <div className="status_box"><h1 className="loading">{error}</h1></div>
+                            </>
                 }
             </div>
         </ React.Fragment>

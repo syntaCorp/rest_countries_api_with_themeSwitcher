@@ -32,30 +32,22 @@ export default function Countries({ searchTerm, region }: PropType): React.React
 
     function renderData(countries: CountryType[]) {
         return countries.filter((country: CountryType) => {
+            if (searchTerm !== '') {
+                return country.name.common.toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+            }
+            else if (region !== '') {
+                return country.region.toLowerCase() === region.toLowerCase();
+            }
+
             return country.name.common.toLowerCase()
-
-            //     if (country.name.common) {
-            //     return country.name.common.toLocaleLowerCase()
-            //         .startsWith(searchTerm.toLocaleLowerCase())
-            // }
-
-            // if (country.region === region) {
-            //     console.log('filter trigerred', country.region)
-            //     return country.region.toLocaleLowerCase() === region.toLowerCase();
-            // }
-            // else
-            //  if (country.name.common) {
-            //     return country.name.common.toLocaleLowerCase()
-            //         .startsWith(searchTerm.toLocaleLowerCase())
-            // }
-
         })
     }
 
     return (
         <React.Fragment>
             {loadStatus === 'loading' ?
-                <h1 className="loading">Loading...</h1>
+                <div className="status_box"><h1 className="loading">Loading...</h1></div>
                 : loadStatus === 'success' ?
                     renderData(sortedCountries)
                         .map((country: any, index: number) => {
@@ -69,7 +61,10 @@ export default function Countries({ searchTerm, region }: PropType): React.React
                                 alt={country.flags.alt}
                             />)
                         })
-                    : <h1 className="loading">{errorMessage}</h1>
+                    : <div className="status_box">
+                        <h1 className="loading">{errorMessage}</h1>
+                    </div>
+
             }
         </ React.Fragment>
     );

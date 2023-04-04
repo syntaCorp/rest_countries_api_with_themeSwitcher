@@ -342,8 +342,14 @@ div.country__poster-data>div>p>span {
   grid-template-rows: 1fr auto;
 }
 
+.poster__container h1 {
+  /* color: red; */
+  margin-block-start: 4em;
+}
 
-
+.status_box {
+  text-align: center;
+}
 /* Adjust styles for various screen sizes */
 @media screen and (width >=12.5em) and (width <=47.9375em) {
 
@@ -419,6 +425,12 @@ div.country__poster-data>div>p>span {
 
 /* ---------------------------------------------------------- */
 @media screen and (width >=37.625em) and (width <=47.9375em) {
+  .status_box {
+    display: grid;
+    grid-template-columns: initial;
+    grid-column: 1/-1;
+    text-align: center;
+  }
   .countries__catalogue {
     column-gap: 1.5em;
     row-gap: 4em;
@@ -439,6 +451,12 @@ div.country__poster-data>div>p>span {
 }
 
 @media screen and (width >=48em) {
+  .status_box {
+    display: grid;
+    grid-template-columns: initial;
+    grid-column: 1/-1;
+    text-align: center;
+  }
   .search__pane {
     display: flex;
     margin-top: 5em;
@@ -478,6 +496,13 @@ div.country__poster-data>div>p>span {
 
 
 @media screen and (width >=64em) {
+
+.status_box {
+	display: grid;
+	grid-template-columns: initial;
+	grid-column: 1/-1;
+	text-align: center;
+}
   .country__poster {
     width: 90%;
     margin: 0 auto;
