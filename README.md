@@ -23,6 +23,9 @@ This is a solution to <a href="https://amalitech.org/">AmaliTech</a> Frontend En
 6. Click through to the border countries on the detail page 
 7. Toggle the colour scheme between light and dark mode
 
+###### Requirement design preview
+![Screenshot of Desktop design](./design/desktop-preview.jpg)
+
 ## Built With 🛠
 - Typescript
 - React
