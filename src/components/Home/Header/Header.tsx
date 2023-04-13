@@ -13,7 +13,7 @@ function Header(): React.ReactElement {
             <header className="header">
                 <div>
                     <Link to="/">
-                        <h1>Where in the World?</h1>
+                        <h1 className='header__title'>Where in the World?</h1>
                     </Link>
                 </div>
                 <div className="toogle__theme" onClick={() => switchTheme(currentTheme)}>

@@ -16,12 +16,14 @@ export default function Home(): React.ReactElement {
     //handle menu items selection
     const handleFilterByRegion: EventHandler<any> = (filterTerm: string) => {
         // const filterValue: string = event.currentTarget.id;
+        console.log('filter term: 1', filterTerm);
         setFilterByRegion(filterTerm);
     }
 
     return (
         <React.Fragment>
-            <SearchBar
+          <main>
+          <SearchBar
                 handleSearchTerm={handleSearchTerm}
                 searchTerm={searchTerm}
                 handleFilterByRegion={handleFilterByRegion}
@@ -30,6 +32,7 @@ export default function Home(): React.ReactElement {
             <div className="countries__catalogue">
                 <Countries searchTerm={searchTerm}  region={filterByRegion} />
             </div>
+          </main>
         </ React.Fragment>
     );
 }

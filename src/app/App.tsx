@@ -18,6 +18,7 @@ const getDefaultTheme = (): string => {
   return ( localStorageTheme || browserDefault);
 };
 
+  //switch between themes
   const switchTheme = (lightMode: string) => { 
     setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light'); // toggle theme 
 
@@ -25,11 +26,12 @@ const getDefaultTheme = (): string => {
   };
   
   const [currentTheme, setCurrentTheme] = useState<string>(getDefaultTheme());
+  document.querySelector("body")?.setAttribute('id', currentTheme);
 
 
   return (
     <ThemeContext.Provider value={{currentTheme, switchTheme}}>
-      <div className="App" id={currentTheme}>
+      <div className="App" >
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />

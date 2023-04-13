@@ -13,7 +13,4 @@ export type ThemeContextType = {
   })
 
 
-
   export const useTheme = () => useContext(ThemeContext);
-
-
