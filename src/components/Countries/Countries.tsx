@@ -49,6 +49,7 @@ export default function Countries({ searchTerm, region }: searchPropType): React
             else if (region === 'Filter by region') {
                 return country.name.common.toLowerCase().indexOf(searchTerm.toLowerCase()) === 0;
             }
+            return false;
         })
     }
     return (
