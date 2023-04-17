@@ -9,9 +9,6 @@ import CountriesItem from "./CountriesItem";
 
 export default function Countries({ searchTerm, region }: searchPropType): React.ReactElement {
 
-    //search and filter states
-    const [searchParam] = useState(['capital', 'name']);
-
     const dispatch = useDispatch<any>();
     const countries = useSelector(selectAllCountries);
     const loadStatus = useSelector(selectStatus);
@@ -54,7 +51,6 @@ export default function Countries({ searchTerm, region }: searchPropType): React
             }
         })
     }
-    console.log('data len', renderData(sortedCountries).length === 0);
     return (
         <React.Fragment>
             {loadStatus === 'loading' ?
