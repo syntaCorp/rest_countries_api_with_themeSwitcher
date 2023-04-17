@@ -26,8 +26,9 @@ const getDefaultTheme = (): string => {
   };
   
   const [currentTheme, setCurrentTheme] = useState<string>(getDefaultTheme());
-  document.querySelector("body")?.setAttribute('id', currentTheme);
 
+  //apply theme to body 
+  document.querySelector("body")!.setAttribute('id', currentTheme);
 
   return (
     <ThemeContext.Provider value={{currentTheme, switchTheme}}>

@@ -1,6 +1,8 @@
 import React from "react";
-import { flagType } from '../../types/types';
+import { useSelector } from "react-redux";
+import { CountryType, flagType } from '../../types/types';
 import { Link } from "react-router-dom";
+import { selectAllCountries } from "../../features/countriesSlice";
 
 export function CountryPosterItem(
     { commonName, officialName, population, capital, region, languages, subregion, borders, currencies, tld, flags: { svg }, alt,}: {
@@ -9,12 +11,18 @@ export function CountryPosterItem(
     }
 ): React.ReactElement {
 
+    // retrieve currency properties
     // test for nullish (undefined | null )
     const availableCurrency = (currencies && Object.values(currencies)[0]) || '';
     const { name: currencyName } = availableCurrency;
 
+    //retrive languages properties
     const countryLanguages = (languages && Object.values(languages)) || [];
 
+    const borderCountriesNames = useSelector(selectAllCountries).filter((country: CountryType) => {
+        return borders?.includes(country.cca3);
+      });
+      
     return (
         <React.Fragment>
             <section className="country__poster">
@@ -35,7 +43,7 @@ export function CountryPosterItem(
                         </div>
 
                         <div>
-                            <p><span>Top level Domain: </span>{tld[0]}</p>
+                            <p><span>Top level Domain: </span>{[...tld]}</p>
                             <p><span>Currencies: </span>{currencyName ? currencyName : "N/A"}</p>
                             <p><span>Languages: </span>{countryLanguages.length ? countryLanguages.join(', ') : "N/A"}</p>
                         </div>
@@ -44,7 +52,11 @@ export function CountryPosterItem(
                     <div className="border__countries">
                         <h2>Border Countries:</h2>
                         <div className="border__countries-list">
-                            <ul> {borders ? borders.map((border, index) => <Link to={`/country/code/${border}`}><li key={`${border}-${index}`} className="border__country-list">{border}</li></Link>) : "N/A"}</ul>
+                            <ul> {borders ? borderCountriesNames.map((country:CountryType, index:number) => 
+                            <Link key={`${country.cca3}${index}`} to={`/country/${country.name.common}`}>
+                                <li className="border__country-list">{country.name.common}</li>
+                            </Link>) : "N/A"}
+                            </ul>
                         </div>
                     </div>
                 </div>

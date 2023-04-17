@@ -33,8 +33,10 @@ export default function Countries({ searchTerm, region }: PropType): React.React
     function renderData(countries: CountryType[]) {
         return countries.filter((country: CountryType) => {
             if (searchTerm !== '') {
+                // return country.name.common.toLowerCase()
+                //     .includes(searchTerm.toLowerCase())
                 return country.name.common.toLowerCase()
-                    .includes(searchTerm.toLowerCase())
+                    .indexOf(searchTerm.toLowerCase()) === 0;
             }
             else if (region !== '') {
                 if(region === 'Filter by region') return country.name.common.toLowerCase();
@@ -60,6 +62,8 @@ export default function Countries({ searchTerm, region }: PropType): React.React
                                 capital={country.capital}
                                 flags={country.flags}
                                 alt={country.flags.alt}
+                                cioc={country.cioc}
+                                cca3={country.cca3}
                             />)
                         })
                     : <div className="status_box">

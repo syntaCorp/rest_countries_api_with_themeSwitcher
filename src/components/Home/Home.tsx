@@ -16,7 +16,6 @@ export default function Home(): React.ReactElement {
     //handle menu items selection
     const handleFilterByRegion: EventHandler<any> = (filterTerm: string) => {
         // const filterValue: string = event.currentTarget.id;
-        console.log('filter term: 1', filterTerm);
         setFilterByRegion(filterTerm);
     }
 

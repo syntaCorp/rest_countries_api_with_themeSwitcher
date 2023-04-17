@@ -20,7 +20,9 @@ export interface CountryType {
     population: number,
     region: string,
     flags: flagType,
-    alt: string
+    alt: string, 
+    cioc: string,
+    cca3: string
 }
 
 export interface PosterType {

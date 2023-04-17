@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { loadCountryByCode, loadCountryPoster } from "../../features/countryPosterslice";
+import { loadCountryPoster } from "../../features/countryPosterslice";
 import { selectCountryPoster, selectErrorMessage, selectStatus } from "../../features/countryPosterslice";
+import {selectAllCountries} from '../../features/countriesSlice';
+
 import { CountryPosterItem } from "./CountryPosterItem";
+import { CountryType } from "../../types/types";
 
 
 function CountryPoster(): React.ReactElement {
@@ -13,18 +16,17 @@ function CountryPoster(): React.ReactElement {
     const status = useSelector(selectStatus);
     const error = useSelector(selectErrorMessage);
 
-    const { name, code } = useParams<string>();
-
+    const { name } = useParams<string>();
+    
+    //RETRIEVE THE CURRENT COUNTRY WHOSE NAME MATCHES THE DYNAMIC URL VALUE
+    const countryPosterData = useSelector(selectAllCountries).find((country:CountryType) => country.name.common === name);
 
     useEffect(() => {
-        // if (status === 'idle') {}
-        if(name){
-            dispatch(loadCountryPoster(name!));
-        }else if(code){
-            dispatch(loadCountryByCode(code))!;
-        }
 
-    }, [dispatch, name, code]);
+        if(countryPosterData){
+            dispatch(loadCountryPoster(countryPosterData!));
+        }
+    }, [dispatch, countryPosterData]);
 
     return (
         <React.Fragment> 
