@@ -5,7 +5,7 @@ import Countries from "../Countries/Countries";
 
 export default function Home(): React.ReactElement {
     const [searchTerm, setSearchText] = useState<string>('');
-    const [filterByRegion, setFilterByRegion] = useState<string>('');
+    const [filterByRegion, setFilterByRegion] = useState<string>('Filter by region');
 
 
     //search bar text

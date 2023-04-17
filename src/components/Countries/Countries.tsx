@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CountryType } from "../../types/types";
+
+import { CountryType, searchPropType } from "../../types/types";
 import { selectAllCountries, selectErrorMessage, selectStatus } from "../../features/countriesSlice";
 import { fetchCountries } from "../../features/countriesSlice";
-
 import CountriesItem from "./CountriesItem";
 
 
-type PropType = {
-    searchTerm: string;
-    region: string;
-}
+export default function Countries({ searchTerm, region }: searchPropType): React.ReactElement {
 
-export default function Countries({ searchTerm, region }: PropType): React.ReactElement {
+    //search and filter states
+    const [searchParam] = useState(['name']);
+
     const dispatch = useDispatch<any>();
-
     const countries = useSelector(selectAllCountries);
     const loadStatus = useSelector(selectStatus);
     const errorMessage = useSelector(selectErrorMessage);
@@ -27,23 +25,32 @@ export default function Countries({ searchTerm, region }: PropType): React.React
 
 
     //alphabetically sort countries 
-    const sortedCountries = [...countries];
-    sortedCountries.sort((item: CountryType, _item: CountryType) => item.name.common.localeCompare(_item.name.common));
+    const sortedCountries = [...countries].sort((item: CountryType, _item: CountryType) => item.name.common.localeCompare(_item.name.common));
 
+    // function filterdCountriesData(countries: CountryType[]) {
+    //     return countries.filter((country: CountryType) => {
+
+    //         if (country.region === region) {
+    //             return searchParam.some((currentParam: string) => {
+    //                 return country[currentParam as keyof country].common.toLowerCase().indexOf(searchTerm) === 0;
+    //             })
+    //         } else if (region === 'Filter by region') {
+    //             return country.region;
+    //         }
+
+    //     })
+    // }
+
+    //existing function to render data
     function renderData(countries: CountryType[]) {
         return countries.filter((country: CountryType) => {
-            if (searchTerm !== '') {
-                // return country.name.common.toLowerCase()
-                //     .includes(searchTerm.toLowerCase())
+            if (country.region === region) {
                 return country.name.common.toLowerCase()
                     .indexOf(searchTerm.toLowerCase()) === 0;
             }
-            else if (region !== '') {
-                if(region === 'Filter by region') return country.name.common.toLowerCase();
-                return country.region.toLowerCase() === region.toLowerCase();
+            else if ( region === 'Filter by region'){
+                return country.name.common.toLowerCase().indexOf(searchTerm.toLowerCase()) === 0;
             }
-
-            return country.name.common.toLowerCase()
         })
     }
 

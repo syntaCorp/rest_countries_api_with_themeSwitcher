@@ -30,3 +30,8 @@ export interface PosterType {
     status: string, //'failed' | 'loading' | 'success',
     error: string,
 }
+
+export type searchPropType = {
+    searchTerm: string;
+    region: string;
+}
