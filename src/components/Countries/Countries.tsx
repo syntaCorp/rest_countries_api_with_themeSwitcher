@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { CountryType, searchPropType, countryNameType } from "../../types/types";
+import { CountryType, searchPropType } from "../../types/types";
 import { selectAllCountries, selectErrorMessage, selectStatus } from "../../features/countriesSlice";
 import { fetchCountries } from "../../features/countriesSlice";
 import CountriesItem from "./CountriesItem";
-import { current } from "@reduxjs/toolkit";
 
 
 export default function Countries({ searchTerm, region }: searchPropType): React.ReactElement {
 
     //search and filter states
-    const [searchParam] = useState(['name']);
+    const [searchParam] = useState(['capital', 'name']);
 
     const dispatch = useDispatch<any>();
     const countries = useSelector(selectAllCountries);
@@ -24,27 +23,23 @@ export default function Countries({ searchTerm, region }: searchPropType): React
         }
     }, [loadStatus, dispatch]);
 
-
     //alphabetically sort countries 
     const sortedCountries = [...countries].sort((item: CountryType, _item: CountryType) => item.name.common.localeCompare(_item.name.common));
 
-    function filterdCountriesData(countries: CountryType[]) {
+    //introducing additional search capability 
+    //to enable search by country name, capital ... 
+    /*function filterdCountriesData(countries: CountryType[]) {
         return countries.filter((country: CountryType) => {
             if (country.region === region) {
                 return searchParam.some((currentParam: string) => {
-
-                    // return country[currentParam as keyof CountryType].common.toLowerCase().indexOf(searchTerm) === 0;
-                    if ('common' in country) {
-                        return country[currentParam as keyof CountryType];
-                    }
-                    // toLowerCase().indexOf(searchTerm) === 0;
+                    return (country[currentParam as keyof CountryType] as { common: string }).common.toLowerCase().indexOf(searchTerm) === 0;
                 })
             } else if (region === 'Filter by region') {
                 return country.name.common.toLowerCase().indexOf(searchTerm.toLowerCase()) === 0;
             }
         })
     }
-    filterdCountriesData(sortedCountries);
+    */
 
     function renderData(countries: CountryType[]) {
         return countries.filter((country: CountryType) => {
@@ -64,7 +59,7 @@ export default function Countries({ searchTerm, region }: searchPropType): React
         <React.Fragment>
             {loadStatus === 'loading' ?
                 <div className="status_box"><h1 className="loading">Loading...</h1></div>
-                : loadStatus === 'success'  && renderData(sortedCountries).length === 0 ?
+                : loadStatus === 'success' && renderData(sortedCountries).length === 0 ?
                     <div className="status_box">
                         <h1 >No match found 🙄</h1>
                     </div>
