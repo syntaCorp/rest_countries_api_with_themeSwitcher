@@ -71,7 +71,6 @@ export default function Countries({ searchTerm, region }: searchPropType): React
                                     capital={country.capital}
                                     flags={country.flags}
                                     alt={country.flags.alt}
-                                    cioc={country.cioc}
                                     cca3={country.cca3}
                                 />)
                             })

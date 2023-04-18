@@ -19,6 +19,7 @@ export function CountryPosterItem(
     //retrive languages properties
     const countryLanguages = (languages && Object.values(languages)) || [];
 
+    //get countries border names by matching cca3 code
     const borderCountriesNames = useSelector(selectAllCountries).filter((country: CountryType) => {
         return borders?.includes(country.cca3);
       });
@@ -39,7 +40,7 @@ export function CountryPosterItem(
                             <p><span>Native Name: </span>{officialName}</p>
                             <p><span>Population: </span>{population.toLocaleString()}</p>
                             <p><span>Region: </span>{region}</p>
-                            <p><span>Sub Region: </span>{subregion}</p>
+                            <p><span>Sub Region: </span>{subregion ? subregion : 'N/A'}</p>
                             <p><span>Capital: </span>{capital}</p>
                         </div>
 

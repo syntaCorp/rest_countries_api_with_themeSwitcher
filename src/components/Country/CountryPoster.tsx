@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { loadCountryPoster } from "../../features/countryPosterslice";
 import { selectCountryPoster, selectErrorMessage, selectStatus } from "../../features/countryPosterslice";
-import {selectAllCountries} from '../../features/countriesSlice';
+import { selectAllCountries } from '../../features/countriesSlice';
 
 import { CountryPosterItem } from "./CountryPosterItem";
 import { CountryType } from "../../types/types";
@@ -17,19 +17,19 @@ function CountryPoster(): React.ReactElement {
     const error = useSelector(selectErrorMessage);
 
     const { name } = useParams<string>();
-    
-    //RETRIEVE THE CURRENT COUNTRY WHOSE NAME MATCHES THE DYNAMIC URL VALUE
-    const countryPosterData = useSelector(selectAllCountries).find((country:CountryType) => country.name.common === name);
+
+    //RETRIEVE THE CURRENT COUNTRY WHOSE NAME MATCHES THE DYNAMIC URL VALUE FROM STORE
+    const countryPosterData = useSelector(selectAllCountries).find((country: CountryType) => country.name.common === name);
 
     useEffect(() => {
 
-        if(countryPosterData){
+        if (countryPosterData) {
             dispatch(loadCountryPoster(countryPosterData!));
         }
     }, [dispatch, countryPosterData]);
 
     return (
-        <React.Fragment> 
+        <React.Fragment>
             <div className="poster__container">
                 {
                     status === 'loading' ? <div className="status_box"><h1 className="loading">Loading...</h1></div>
@@ -56,8 +56,8 @@ function CountryPoster(): React.ReactElement {
                                 })}
                             </>
                             : <> <Link to="/">
-                                    <button className="back__button">&larr; Back</button>
-                                </Link>
+                                <button className="back__button">&larr; Back</button>
+                            </Link>
                                 <div className="status_box"><h1 className="loading">{error}</h1></div>
                             </>
                 }

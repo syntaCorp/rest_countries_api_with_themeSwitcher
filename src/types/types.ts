@@ -21,7 +21,6 @@ export interface CountryType {
     region: string,
     flags: flagType,
     alt: string, 
-    cioc: string,
     cca3: string
 }
 
