@@ -22,7 +22,8 @@ export function CountryPosterItem(
     const borderCountriesNames = useSelector(selectAllCountries).filter((country: CountryType) => {
         return borders?.includes(country.cca3);
       });
-      
+
+
     return (
         <React.Fragment>
             <section className="country__poster">
@@ -43,7 +44,7 @@ export function CountryPosterItem(
                         </div>
 
                         <div>
-                            <p><span>Top level Domain: </span>{[...tld]}</p>
+                            <p><span>Top level Domain: </span>{tld ? tld[0] : 'n/a'}</p>
                             <p><span>Currencies: </span>{currencyName ? currencyName : "N/A"}</p>
                             <p><span>Languages: </span>{countryLanguages.length ? countryLanguages.join(', ') : "N/A"}</p>
                         </div>
