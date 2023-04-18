@@ -347,14 +347,19 @@ div.country__poster-data>div>p>span {
 }
 
 .poster__container h1 {
-  /* color: red; */
   margin-block-start: 4em;
 }
 
 .status_box {
   text-align: center;
 }
-
+.header-wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
 /* Adjust styles for various screen sizes */
 @media screen and (width >=12.5em) and (width <=47.9375em) {
   .countries__catalogue {
@@ -368,11 +373,7 @@ div.country__poster-data>div>p>span {
     top: 10.25em;
   }
 
-  .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  .header{
     font-size: 0.875em;
     padding: 1.56em;
   }
@@ -471,12 +472,15 @@ div.country__poster-data>div>p>span {
     width: 90%;
     margin-inline: auto;
   }
+  .header-wrap{
+    width: 90vw;
+  }
 
   .header {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     background-color: #fff;
     font-size: 1.5rem;
@@ -527,6 +531,9 @@ div.country__poster-data>div>p>span {
 
   .poster__container {
     height: calc(100vh - 6.5em);
+  }
+  .header-wrap{
+    width: 90vw;
   }
 
 }
