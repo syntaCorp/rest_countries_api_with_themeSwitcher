@@ -46,7 +46,7 @@ export default function Countries({ searchTerm, region }: searchPropType): React
             }
             //when no region is selected show all regions unless a region is selected
             //ensures that all searches match the filtered region by country name
-            else if (region === 'Filter by region') {
+            else if (region === 'All') {
                 return country.name.common.toLowerCase().indexOf(searchTerm.toLowerCase()) === 0;
             }
             return false;
