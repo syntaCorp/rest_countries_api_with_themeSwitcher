@@ -1,15 +1,20 @@
-import {createContext, useContext} from 'react';
+import { createContext, useContext } from 'react';
 
-// export type themeType = 'dark' | 'light';
+export type themeType = 'dark' | 'light';
+
 export type ThemeContextType = {
-    currentTheme: string,
-    switchTheme: (arg: string) => void
-  };
+  currentTheme: themeType,
+  switchTheme: (arg: themeType) => void
+};
 
-  export const ThemeContext = createContext<ThemeContextType>({
+export const ThemeContext = createContext<ThemeContextType>(
+  {
     currentTheme: 'light',
-    switchTheme: (arg: string) => {}
-  })
+    switchTheme: (arg: themeType) => { }
+  }
+)
 
+//custom hook to access theme
+//invoke in other components to retrieve theme properties
 
-  export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => useContext(ThemeContext);

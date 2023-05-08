@@ -25,7 +25,7 @@ export interface CountryType {
 }
 
 export interface PosterType {
-    country: Array<any>,
+    country: Array<CountryType>,
     status: string, //'failed' | 'loading' | 'success',
     error: string,
 }

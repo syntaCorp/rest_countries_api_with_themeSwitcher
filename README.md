@@ -5,7 +5,7 @@ This is a solution to <a href="https://amalitech.org/">AmaliTech</a> Frontend En
 
 ## Outline of contents
 - [Project Objective](#project-objective-📃)
-- [Requirements](#project-objective-📃)
+- [Requirements](#requirements-⛳)
 - [Requirement design preview](#requirement-design-preview-📷)
 - [Built with](#built-with-🛠)
 - [Project links](#project-links-🔗)

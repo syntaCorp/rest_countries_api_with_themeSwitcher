@@ -7,7 +7,6 @@ import { ThemeContext } from "../../../app/ThemeContext"
 function Header(): React.ReactElement {
     const { currentTheme, switchTheme } = useContext(ThemeContext);
 
-
     return (
         <React.Fragment>
             <header className="header">

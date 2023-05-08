@@ -3,19 +3,24 @@ import { Routes, Route } from 'react-router-dom';
 import Header from "../components/Home/Header/Header";
 import Home from '../components/Home/Home';
 import CountryPoster from '../components/Country/CountryPoster';
-import { ThemeContext } from './ThemeContext';
+import { ThemeContext, themeType } from './ThemeContext';
 
 
 function App() {
   // Detect the default browser theme
 const isbrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+
 //render specific mode when default theme is set
-const getDefaultTheme = (): string => {
+const getDefaultTheme = (): themeType => {
   const localStorageTheme = localStorage.getItem('theme')!;
 
-  const browserDefault = isbrowserDefaultDark() ? 'dark' : 'light';
-  return ( localStorageTheme || browserDefault);
+  // check if the user has set dark theme in the browser 
+  // as prefered else set theme to light
+  const browserDefault:themeType = isbrowserDefaultDark() ? 'dark' : 'light';
+
+  //if there is a theme in local storage maintain it else set browser default
+  return ( localStorageTheme ? localStorageTheme as themeType : browserDefault);
 };
 
   //switch between themes
@@ -25,7 +30,7 @@ const getDefaultTheme = (): string => {
     localStorage.setItem('theme', currentTheme === 'dark' ? 'light' : 'dark'); //persist user's set theme
   };
   
-  const [currentTheme, setCurrentTheme] = useState<string>(getDefaultTheme());
+  const [currentTheme, setCurrentTheme] = useState<themeType>(getDefaultTheme());
 
   //apply theme to body 
   document.querySelector("body")!.setAttribute('id', currentTheme);
